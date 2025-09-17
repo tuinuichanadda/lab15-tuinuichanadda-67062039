@@ -7,7 +7,7 @@
   "license": "AGPL-version-3.0",
   "private": false,
   "engines": {
-    "node": "22.",
+    "node": ">= 18.0.0",
     "npm": ">= 6.0.0"
   },
   "homepage": "",
@@ -25,7 +25,7 @@
   "contributors": [],
   "scripts": {
     "dev": "npx nodemon --exec tsx src/index.ts",
-    "build": "npx tsc && tsc-alias",
+    "build": "npx tsc",
     "start": "node ./dist/index.js"
   },
   "dependencies": {
