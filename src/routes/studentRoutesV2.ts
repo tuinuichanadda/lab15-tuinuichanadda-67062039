@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import { students, courses } from "../db/db";
-import { zCoursePostBody, zCoursePutBody } from "../schemas/courseSchema"
+import { zCoursePostBody, zCoursePutBody,zCourseDeleteBody } from "../schemas/courseSchema"
 import { Course, Student } from "../libs/types"
 const router = Router();
 
@@ -81,6 +81,43 @@ router.put("/", async(req: Request, res: Response,next:Function) => {
   return res.json({ ok: true, course: courses[foundIndex] });
   }catch(err){
    next(err);
+  }
+});
+
+router.delete("/", async (req: Request, res: Response, next: Function) => {
+  try {
+    const body = req.body;
+
+    // Validate ด้วย Zod
+    const parseResult = zCourseDeleteBody.safeParse(body);
+    if (!parseResult.success) {
+      return res.status(400).json({
+        ok: false,
+        message: parseResult.error.issues[0].message,
+      });
+    }
+
+    const { courseId } = parseResult.data;
+
+    // หา course ที่จะลบ
+    const courseToDelete = courses.find(c => c.courseId === courseId);
+    if (!courseToDelete) {
+      return res.status(404).json({
+        ok: false,
+        message: "Course Id does not exist",
+      });
+    }
+    // ลบ course ออกจาก array
+    const result = courses.filter(c => c.courseId !== courseId);
+
+    return res.json({
+      ok: true,
+      message: "Course deleted successfully",
+      deletedCourse: courseToDelete,
+    });
+
+  } catch (err) {
+    next(err);
   }
 });
 

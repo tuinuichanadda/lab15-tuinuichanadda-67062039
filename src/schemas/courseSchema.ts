@@ -16,3 +16,7 @@ export const zCoursePutBody = z.object({
   courseTitle: zCourseTitle.nullish(),//CourseTitle can be null or undefined
   instructors: zInstructors.nullish(), //Instructors can be null or undefined
 });
+
+export const zCourseDeleteBody = z.object({
+  courseId: zCourseId
+});
