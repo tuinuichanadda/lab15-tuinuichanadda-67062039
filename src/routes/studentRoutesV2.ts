@@ -26,7 +26,7 @@ router.get("/", (req: Request, res: Response) => {
 router.post("/", async(req: Request, res: Response,next:Function) => {
   try {
       const body = await req.body;
-      console.log(req.body,body);
+      // console.log(req.body,body);
       // เอา data ที่เป็น any type ไป validate โดยใช้ zod schema
       const result = zCoursePostBody.safeParse(body); // check zod
       if (!result.success) {
@@ -43,7 +43,7 @@ router.post("/", async(req: Request, res: Response,next:Function) => {
         );
       }
 
-    const newCouse = courses.push(req.body);
+    const newCouse = courses.push(body);
       return res.json(newCouse);
       // return res.json({ ok: true, message: "successfuly" });
   } catch (err) {
@@ -54,7 +54,7 @@ router.post("/", async(req: Request, res: Response,next:Function) => {
 router.put("/", async(req: Request, res: Response,next:Function) => {
   try {
       const body = await req.body;
-      console.log(req.body,body);
+      // console.log(req.body,body);
       const parseResult = zCoursePutBody.safeParse(body);
       if (parseResult.success === false) {
     return res.status(400).json(
