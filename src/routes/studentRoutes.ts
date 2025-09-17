@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import { students, courses } from "../db/db";
 import { zCoursePostBody, zCoursePutBody,zCourseDeleteBody } from "../schemas/courseSchema"
-import { Course, Student } from "../libs/types"
+import type { Course, Student } from "../libs/types"
 const router = Router();
 
 // READ all

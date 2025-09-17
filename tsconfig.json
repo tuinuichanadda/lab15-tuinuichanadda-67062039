@@ -9,8 +9,6 @@
     "skipLibCheck": true,
     "outDir": "dist",
     "rootDir": "src",
-    "verbatimModuleSyntax": true
-
   },
    "exclude": ["node_modules", "dist"],
    "include": ["src/**/*"]
