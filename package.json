@@ -17,11 +17,6 @@
   },
   "bugs": "",
   "keywords": [],
-  "author": {
-    "name": "",
-    "email": "",
-    "url": ""
-  },
   "contributors": [],
   "scripts": {
     "dev": "npx nodemon --exec tsx src/index.ts",
