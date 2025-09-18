@@ -1,41 +1,25 @@
 {
-  "name": "restfulapi",
+  "name": "RestfulAPI - Copy",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
-  "license": "AGPL-version-3.0",
-  "private": false,
-  "engines": {
-    "npm": ">= 6.0.0"
-  },
-  "homepage": "",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "bugs": "",
-  "keywords": [],
-  "contributors": [],
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx nodemon ts-node  --exec tsx src/index.ts",
     "build": "npx tsc",
     "start": "node dist/index.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
   "dependencies": {
-    "@tsconfig/node-lts": "^22.0.2",
-    "@tsconfig/node-ts": "^23.6.1",
     "express": "^5.1.0",
     "morgan": "^1.10.1",
-    "tsc-alias": "^1.8.16",
-    "tsx": "^4.20.5",
-    "typescript": "^5.9.2",
     "zod": "^4.1.9"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
-    "@types/morgan": "^1.9.10",
-    "@types/node": "^24.5.1",
-    "nodemon": "^3.1.10"
+    "@types/morgan": "^1.9.10"
   }
 }
